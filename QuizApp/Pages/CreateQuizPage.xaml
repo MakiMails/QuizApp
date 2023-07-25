@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizApp.Pages.CreateQuizPage"
+             Title="CreateQuizPage">
+    <VerticalStackLayout>
+        <Label Text="Создание викторины"/>
+        <Label Text="Название:"/>
+        <Entry/>
+        <Picker Title = "Тема:"/>
+
+        <HorizontalStackLayout>
+            <Label Text="Вопросы"/>
+            <Button Text="Добавить"/>
+        </HorizontalStackLayout>
+
+        <CollectionView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout>
+                        <Label Text="1"/>
+                        <Button Text="Начальный текст вопроса"/>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Сохранить"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizApp.Pages.QuizPage"
+             Title="QuizPage">
+    <VerticalStackLayout>
+        <Label Text="Название викторины"/>
+        <Label Text="Тема"/>
+        <Label Text="Оценка в виде звездочек"/>
+        <Label Text="Автор"/>
+        <Label Text="Кол-во вопросов"/>
+        <Label Text="Кол-во прохождений"/>
+        <Label Text="Результат выполнения, если пройден"/>
+        <Button Text="Начать/Перепройти"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -3,12 +3,23 @@
     x:Class="QuizApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:QuizApp"
+    xmlns:pages="clr-namespace:QuizApp.Pages"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
+    <!--<ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate pages:MainPage}"
+        Route="MainPage" />-->
+    <TabBar>
+        <Tab Title="Main">
+            <ShellContent ContentTemplate="{DataTemplate pages:CreateQuizPage}" />
+        </Tab>
+        <Tab Title="Create Quiz">
+            <ShellContent ContentTemplate="{DataTemplate pages:CreateQuizPage}" />
+        </Tab>
+        <Tab Title="Account">
+            <ShellContent ContentTemplate="{DataTemplate pages:AccountPage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

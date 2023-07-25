@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizApp.Pages.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <Entry/>
+                <Button Text="Поиск"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Button Text="Все"/>
+                <Button Text="Мои"/>
+            </HorizontalStackLayout>
+
+            <CollectionView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label Text="Название"/>
+                            <Label Text="Тема"/>
+                            <Label Text="Кол-во вопросов"/>
+                            <Label Text="Автор"/>
+                            <Label Text="Оценка"/>
+                            <Label Text="Прошел/Непрошел"/>
+                            <Label Text="Кол-во прохождений"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
