@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QuizApp.ViewModels.LoginPage"
-             Title="LoginPage">
+             x:Class="QuizApp.Pages.LoginPage">
     <VerticalStackLayout>
         <Label Text="Авторизация"/>
         <Label Text="Логин"/>
-        <Entry/>
+        <Entry Text="{Binding Login}"/>
         <Label Text="Пароль"/>
-        <Entry/>
-        <Button Text="Авторизоваться"/>
+        <Entry Text="{Binding Password}"/>
+        <Button Text="Авторизоваться" Command="{Binding AuthorizeCommand}"/>
+        <Button Text="Нет аккаунта" Command="{Binding GoToRegistrationPageCommand}"/>
+        <CollectionView ItemsSource="{Binding MessangeErrors}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

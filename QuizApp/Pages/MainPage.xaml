@@ -7,7 +7,7 @@
         <VerticalStackLayout>
             <HorizontalStackLayout>
                 <Entry/>
-                <Button Text="Поиск"/>
+                <Button x:Name="test" Text="Поиск"/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout>
