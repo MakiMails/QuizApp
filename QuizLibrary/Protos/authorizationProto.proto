@@ -1,0 +1,35 @@
+﻿syntax = "proto3";
+
+import "Protos/quizLibraryProto.proto";
+
+option csharp_namespace = "QuizLibrary.Protos.AuthorizationProto";
+
+package authorizationProto;
+
+service AuthorizationProto {
+	rpc Authorize(AuthorizationData) returns (AuthorizationReply);
+	rpc Register(RegistrationData) returns (RegistrationReply);
+}
+
+message AuthorizationData{
+	string login = 1;
+	string password = 2;
+}
+
+message AuthorizationReply{
+	bool isAuthorized = 1;
+	string token = 2;
+	string errorMessage = 3;
+	quizLibraryProto.UserReply userReply = 4;
+}
+
+message RegistrationData{
+	string login = 1;
+	string email = 2;
+	string password = 3;
+}
+
+message RegistrationReply{
+	bool isRegistered = 1;
+	string errorMessage = 2;
+}

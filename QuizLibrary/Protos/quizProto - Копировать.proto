@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+import "Protos/quizLibraryProto.proto";
+
+option csharp_namespace = "QuizLibrary.Protos.QuizProto";
+
+package quizProto;
+
+service QuizProto {
+	rpc GetQuiz(GetQuizRequect) returns (quizLibraryProto.QuizReply); 
+	rpc SaveResult(SaveResultRequect) returns (SaveResultReply);
+}
+
+message GetQuizRequect{
+	int32 idQuiz = 1;
+}
+
+message SaveResultRequect{
+	int32 result = 1;
+	int32 idUser = 2;
+}
+
+message SaveResultReply{
+	bool isSave = 1;
+	string errorMessange = 2;
+}

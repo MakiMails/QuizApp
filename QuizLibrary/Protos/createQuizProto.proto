@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+import "Protos/quizLibraryProto.proto";
+
+option csharp_namespace = "QuizLibrary.Protos.CreateQuizProto";
+
+package createQuizProto;
+
+service CreateQuizProto {
+	rpc CreateQuiz() returns ();
+}
+
+message CreateQuizRequest{
+
+}

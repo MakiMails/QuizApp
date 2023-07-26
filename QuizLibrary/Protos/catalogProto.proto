@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+import "Protos/quizLibraryProto.proto";
+
+option csharp_namespace = "QuizLibrary.Protos.CatalogProto";
+
+package catalogProto;
+
+service CatalogProto {
+	rpc GetBlockInternetQuiz(GetBlockInternetQuizRequect) returns (QuiezReplys);
+	rpc GetBlockMyQuiz(GetBlockMyQuizRequect) returns (QuiezReplys);
+}
+
+message GetBlockInternetQuizRequect{
+	int32 lastQuizId = 1;
+}
+
+message GetBlockMyQuizRequect{
+	int32 idLastQuiz = 1;
+	int32 idUser = 2;
+}
+
+message QuiezReplys{
+	repeated quizLibraryProto.QuizReply quizReplys = 1;
+}

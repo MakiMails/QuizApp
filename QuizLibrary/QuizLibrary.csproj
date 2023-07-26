@@ -7,6 +7,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Protos\authorizationProto.proto" />
+	  <None Remove="Protos\catalogProto.proto" />
+	  <None Remove="Protos\createQuizProto.proto" />
+	  <None Remove="Protos\quizLibraryProto.proto" />
+	  <None Remove="Protos\quizProto - Копировать.proto" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Google.Protobuf" Version="3.23.4" />
 		<PackageReference Include="Grpc.Net.Client" Version="2.55.0" />
 		<PackageReference Include="Grpc.Tools" Version="2.56.2">
@@ -16,7 +24,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Protobuf Include="Protos\greet.proto"/>
+		<Protobuf Include="Protos\quizProto - Копировать.proto" />
+		<Protobuf Include="Protos\createQuizProto.proto" />
+		<Protobuf Include="Protos\catalogProto.proto" />
+		<Protobuf Include="Protos\authorizationProto.proto" />
+		<Protobuf Include="Protos\quizLibraryProto.proto" />
+		<Protobuf Include="Protos\greet.proto" />
 	</ItemGroup>
 
 </Project>
