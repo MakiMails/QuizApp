@@ -2,15 +2,14 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using QuizApp.Pages;
 
 namespace QuizApp.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        private string _login = "";
-        private string _password = "";
-        private bool _isBlokcSendButton = false;
+        private string _login = "Anton";
+        private string _password = "Anton123";
+        private bool _isBlockedUI = false;
         private ObservableCollection<string> _messangeErrors = new();
 
         public string Login
@@ -39,15 +38,15 @@ namespace QuizApp.ViewModels
             }
         }
 
-        public bool IsBlokcSendButton
+        public bool IsBlockedUI
         {
-            get => _isBlokcSendButton;
+            get => !_isBlockedUI;
 
             set
             {
-                if (_isBlokcSendButton != value)
+                if (_isBlockedUI != value)
                 {
-                    _isBlokcSendButton = value;
+                    _isBlockedUI = value;
                     OnPropertyChanged();
                 }
             }
@@ -74,7 +73,7 @@ namespace QuizApp.ViewModels
         {
             AuthorizeCommand = new Command(async () =>
             {
-                IsBlokcSendButton = true;
+                IsBlockedUI = true;
 
                 if (CheckCorrectnessOfData())
                 {
@@ -84,7 +83,7 @@ namespace QuizApp.ViewModels
                     }
                 }
 
-                IsBlokcSendButton = false;
+                IsBlockedUI = false;
             });
 
             GoToRegistrationPageCommand = new Command(async () =>

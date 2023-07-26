@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizApp.Pages.QuizPage">
     <VerticalStackLayout>
-        <Label Text="Название викторины"/>
+        <Label Text="{Binding QuizMessageViewModel.Name}"/>
         <Label Text="Тема"/>
         <Label Text="Оценка в виде звездочек"/>
         <Label Text="Автор"/>

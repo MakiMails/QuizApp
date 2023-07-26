@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+import "Protos/quizLibraryProto.proto";
+
+option csharp_namespace = "QuizLibrary.Protos.QuizProto";
+
+package quizProto;
+
+service QuizProto {
+	rpc CreateQuiz(quizLibraryProto.QuizMessage) returns (ResultQuizReply);
+	rpc UpdateQuiz(quizLibraryProto.QuizMessage) returns (ResultQuizReply);
+	rpc DeleteQuiz(quizLibraryProto.QuizMessage) returns (ResultQuizReply);
+}
+
+message ResultQuizReply{
+	string result = 1;
+}

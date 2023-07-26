@@ -9,9 +9,8 @@
 	<ItemGroup>
 	  <None Remove="Protos\authorizationProto.proto" />
 	  <None Remove="Protos\catalogProto.proto" />
-	  <None Remove="Protos\createQuizProto.proto" />
 	  <None Remove="Protos\quizLibraryProto.proto" />
-	  <None Remove="Protos\quizProto - Копировать.proto" />
+	  <None Remove="Protos\quizProto.proto" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -24,12 +23,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Protobuf Include="Protos\quizProto - Копировать.proto" />
-		<Protobuf Include="Protos\createQuizProto.proto" />
+		<Protobuf Include="Protos\quizProto.proto" />
 		<Protobuf Include="Protos\catalogProto.proto" />
 		<Protobuf Include="Protos\authorizationProto.proto" />
 		<Protobuf Include="Protos\quizLibraryProto.proto" />
-		<Protobuf Include="Protos\greet.proto" />
 	</ItemGroup>
 
 </Project>

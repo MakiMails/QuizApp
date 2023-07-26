@@ -4,50 +4,27 @@ option csharp_namespace = "QuizLibrary.Protos";
 
 package quizLibraryProto;
 
-message UserRequect{
+message UserMessage{
 	int32 id = 1;
 	string login = 2;
 }
 
-message QuizRequect{
-	string name = 1;
-	string topic = 2;
-	float estimation = 3;
-	repeated QuestionRequect questionReplys = 4;
-	UserRequect author = 5;
-}
-
-message QuestionRequect{
-	string text = 1;
-	repeated AnswerRequect answerReplys = 2;
-}
-
-message AnswerRequect{
-	string text = 1;
-	bool isRight = 2;
-}
-
-message UserReply{
-	int32 id = 1;
-	string login = 2;
-}
-
-message QuizReply{
+message QuizMessage{
 	int32 id = 1;
 	string name = 2;
 	string topic = 3;
 	float estimation = 4;
-	repeated QuestionReply questionReplys = 5;
-	UserReply author = 6;
+	repeated QuestionMessage questionMessages = 5;
+	UserMessage author = 6;
 }
 
-message QuestionReply{
+message QuestionMessage{
 	int32 id = 1;
 	string text = 2;
-	repeated AnswerReply answerReplys = 3;
+	repeated AnswerMessage answerMessages = 3;
 }
 
-message AnswerReply{
+message AnswerMessage{
 	int32 id = 1;
 	string text = 2;
 	bool isRight = 3;

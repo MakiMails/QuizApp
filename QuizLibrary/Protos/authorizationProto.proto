@@ -20,7 +20,7 @@ message AuthorizationReply{
 	bool isAuthorized = 1;
 	string token = 2;
 	string errorMessage = 3;
-	quizLibraryProto.UserReply userReply = 4;
+	quizLibraryProto.UserMessage userMessage = 4;
 }
 
 message RegistrationData{

@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizApp.Pages.LoginPage">
     <VerticalStackLayout>
-        <Label Text="Авторизация"/>
+        <Label Text="Авторизация" IsEnabled="{Binding IsBlockedUI}"/>
         <Label Text="Логин"/>
-        <Entry Text="{Binding Login}"/>
+        <Entry Text="{Binding Login}" IsEnabled="{Binding IsBlockedUI}"/>
         <Label Text="Пароль"/>
-        <Entry Text="{Binding Password}"/>
-        <Button Text="Авторизоваться" Command="{Binding AuthorizeCommand}"/>
-        <Button Text="Нет аккаунта" Command="{Binding GoToRegistrationPageCommand}"/>
+        <Entry Text="{Binding Password}" IsEnabled="{Binding IsBlockedUI}"/>
+        <Button Text="Авторизоваться" Command="{Binding AuthorizeCommand}" IsEnabled="{Binding IsBlockedUI}"/>
+        <Button Text="Нет аккаунта" Command="{Binding GoToRegistrationPageCommand}" IsEnabled="{Binding IsBlockedUI}"/>
         <CollectionView ItemsSource="{Binding MessangeErrors}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>

@@ -20,6 +20,6 @@ message GetBlockMyQuizRequect{
 	int32 idUser = 2;
 }
 
-message QuiezReplys{
-	repeated quizLibraryProto.QuizReply quizReplys = 1;
+message QuiezMessages{
+	repeated quizLibraryProto.QuizMessage quizMessages = 1;
 }

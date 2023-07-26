@@ -1,32 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="QuizApp.Pages.MainPage">
-
+             x:Class="QuizApp.Pages.MainPage"
+             xmlns:proto="clr-namespace:QuizLibrary.Protos;assembly=QuizLibrary">
     <ScrollView>
         <VerticalStackLayout>
-            <HorizontalStackLayout>
-                <Entry/>
-                <Button x:Name="test" Text="Поиск"/>
-            </HorizontalStackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Entry Grid.Column="0"/>
+                <Button Grid.Column="1" Text="Поиск"/>
+            </Grid>
 
             <HorizontalStackLayout>
-                <Button Text="Все"/>
-                <Button Text="Мои"/>
+                <Button Text="Все" Command="{Binding SwitchCatalogCommang}" CommandParameter="Internet"/>
+                <Button Text="Мои" Command="{Binding SwitchCatalogCommang}" CommandParameter="My"/>
             </HorizontalStackLayout>
 
-            <CollectionView>
+            <CollectionView ItemsSource="{Binding QuizMessages}">
+                <CollectionView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Test}"/>
+                </CollectionView.GestureRecognizers>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout>
-                            <Label Text="Название"/>
-                            <Label Text="Тема"/>
-                            <Label Text="Кол-во вопросов"/>
-                            <Label Text="Автор"/>
-                            <Label Text="Оценка"/>
-                            <Label Text="Прошел/Непрошел"/>
-                            <Label Text="Кол-во прохождений"/>
-                        </VerticalStackLayout>
+                        <Border>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToPageDetails}"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout>
+
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Topic}"/>
+                                <Label Text="{Binding Estimation}"/>
+                                <Label Text="{Binding Author.Login}"/>
+                                <Label Text="{Binding Count}"/>
+                            </VerticalStackLayout>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
