@@ -3,16 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuizApp.Pages.PassingQuizPage">
     <VerticalStackLayout>
-        <Label Text="1/10"/>
-        <Label Text="Вопрос"/>
-        <CollectionView>
+        <Label Text="{Binding NumQuestion}"/>
+        <Label Text="/"/>
+        <Label Text="{Binding QuestionCount}"/>
+        <Label Text="{Binding QuestionText}"/>
+        <CollectionView ItemsSource="{Binding AnswerMessageViewModels}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout>
-                        <Label Text="Вопрос"/>
+                        <RadioButton Content="{Binding Text}" 
+                                     GroupName="answers"
+                                     IsChecked="{Binding IsChecked}"/>
+                        <Label Text="{Binding IsChecked}"/>
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Button Text="Ответить" Command="{Binding ToAnswerCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

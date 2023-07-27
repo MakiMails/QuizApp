@@ -5,9 +5,11 @@
              Title="EvaluationQuizPage">
     <VerticalStackLayout>
         <Label Text="Результат"/>
-        <Label Text="9/10"/>
+        <Label Text="{Binding CorrectCurrentAnswer}"/>
+        <Label Text="/"/>
+        <Label Text="{Binding QuestionCount}"/>
         <Label Text="ЗВЕДОЧКИ"/>
-        <Button Text="Оценить"/>
-        <Button Text="Вернутся на главную страницу"/>
+        <Button Text="Оценить" Command="{Binding SendEcaluationCommand}"/>
+        <Button Text="Главная страница" Command="{Binding BackMainPageCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

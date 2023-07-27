@@ -20,9 +20,6 @@
             </HorizontalStackLayout>
 
             <CollectionView ItemsSource="{Binding QuizMessages}">
-                <CollectionView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Test}"/>
-                </CollectionView.GestureRecognizers>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border>

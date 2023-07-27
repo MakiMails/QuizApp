@@ -4,12 +4,12 @@
              x:Class="QuizApp.Pages.QuizPage">
     <VerticalStackLayout>
         <Label Text="{Binding QuizMessageViewModel.Name}"/>
-        <Label Text="Тема"/>
-        <Label Text="Оценка в виде звездочек"/>
-        <Label Text="Автор"/>
-        <Label Text="Кол-во вопросов"/>
+        <Label Text="{Binding QuizMessageViewModel.Topic}"/>
+        <Label Text="{Binding QuizMessageViewModel.Estimation}"/>
+        <Label Text="{Binding QuizMessageViewModel.AuthorLogin}"/>
+        <!--<Label Text="Кол-во вопросов"/>
         <Label Text="Кол-во прохождений"/>
-        <Label Text="Результат выполнения, если пройден"/>
-        <Button Text="Начать/Перепройти"/>
+        <Label Text="Результат выполнения, если пройден"/>-->
+        <Button Text="Начать" Command="{Binding StartQuizCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -9,6 +9,8 @@ namespace QuizApp.ViewModels
     {
         private QuizMessage _quiz;
 
+        public QuizMessage QuizMessage { get { return _quiz; } }
+
         public string Name
         {
             get => _quiz.Name;
@@ -29,29 +31,11 @@ namespace QuizApp.ViewModels
             get => _quiz.Author.Login;
         }
 
-        private int _count = 0;
-
-        public int Count
-        {
-            get => _count;
-
-            set
-            {
-                if (_count != value)
-                {
-                    _count = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public ICommand Test { get; set; }
         public ICommand GoToPageDetails { get; set; }
 
         public QuizMessageViewModel(QuizMessage quizReply)
         {
             _quiz = quizReply;
-            Test = new Command(() => { Count++; });
             GoToPageDetails = new Command(async () => await OnClick());
         }
 

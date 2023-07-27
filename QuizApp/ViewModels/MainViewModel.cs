@@ -19,7 +19,7 @@ namespace QuizApp.ViewModels
 
             set
             {
-                if(_textForSearch != value)
+                if (_textForSearch != value)
                 {
                     _textForSearch = value;
                     OnPropertyChanged();
@@ -33,7 +33,7 @@ namespace QuizApp.ViewModels
 
             set
             {
-                if(_quizMessageViewModels != value)
+                if (_quizMessageViewModels != value)
                 {
                     _quizMessageViewModels = value;
                     OnPropertyChanged();
@@ -85,31 +85,36 @@ namespace QuizApp.ViewModels
                 }
             };
 
-            QuestionMessage questionReply = new QuestionMessage()
+            for (int i = 0; i < 5; i++)
             {
-                Text = "Вопрос 1"
-            };
+                QuestionMessage questionReply = new QuestionMessage()
+                {
+                    Text = $"Вопрос {i}"
+                };
 
-            List<AnswerMessage> answerReplies = new List<AnswerMessage>()
-            {
-                new AnswerMessage()
-                {
-                    Text = "Ответ 1(Правильный)",
-                    IsRight = true,
-                },
-                new AnswerMessage()
-                {
-                    Text = "Ответ 2",
-                    IsRight = false,
-                },
-                new AnswerMessage()
-                {
-                    Text = "Ответ 3",
-                    IsRight = false,
-                },
-            };
+                quizReply.QuestionMessages.Add(questionReply);
 
-            quizReply.QuestionMessages.Add(questionReply);
+                List<AnswerMessage> answerReplies = new List<AnswerMessage>()
+                {
+                    new AnswerMessage()
+                    {
+                        Text = $"Ответ {i}(Правильный)",
+                        IsRight = true,
+                    },
+                    new AnswerMessage()
+                    {
+                        Text = $"Ответ {i + 1}",
+                        IsRight = false,
+                    },
+                    new AnswerMessage()
+                    {
+                        Text = $"Ответ {i + 2}",
+                        IsRight = false,
+                    },
+                };
+                quizReply.QuestionMessages[i].AnswerMessages.AddRange(answerReplies);
+            }
+
             QuizMessages.Add(new QuizMessageViewModel(quizReply));
         }
 
@@ -127,31 +132,36 @@ namespace QuizApp.ViewModels
                 }
             };
 
-            QuestionMessage questionReply = new QuestionMessage()
+            for (int i = 0; i < 5; i++)
             {
-                Text = "Вопрос 1"
-            };
+                QuestionMessage questionReply = new QuestionMessage()
+                {
+                    Text = $"Вопрос {i}"
+                };
 
-            List<AnswerMessage> answerReplies = new List<AnswerMessage>()
-            {
-                new AnswerMessage()
-                {
-                    Text = "Ответ 1(Правильный)",
-                    IsRight = true,
-                },
-                new AnswerMessage()
-                {
-                    Text = "Ответ 2",
-                    IsRight = false,
-                },
-                new AnswerMessage()
-                {
-                    Text = "Ответ 3",
-                    IsRight = false,
-                },
-            };
+                quizReply.QuestionMessages.Add(questionReply);
 
-            quizReply.QuestionMessages.Add(questionReply);
+                List<AnswerMessage> answerReplies = new List<AnswerMessage>()
+                {
+                    new AnswerMessage()
+                    {
+                        Text = $"Ответ {i}(Правильный)",
+                        IsRight = true,
+                    },
+                    new AnswerMessage()
+                    {
+                        Text = $"Ответ {i + 1}",
+                        IsRight = false,
+                    },
+                    new AnswerMessage()
+                    {
+                        Text = $"Ответ {i + 2}",
+                        IsRight = false,
+                    },
+                };
+                quizReply.QuestionMessages[i].AnswerMessages.AddRange(answerReplies);
+            }
+
             QuizMessages.Add(new QuizMessageViewModel(quizReply));
         }
 
@@ -173,7 +183,7 @@ namespace QuizApp.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));

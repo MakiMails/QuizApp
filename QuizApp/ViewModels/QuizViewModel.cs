@@ -1,25 +1,57 @@
-﻿using System.ComponentModel;
+﻿using QuizLibrary.Protos;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace QuizApp.ViewModels
 {
-    [QueryProperty("QuizMessageViewModel",nameof(QuizMessageViewModel))]
+    [QueryProperty("QuizMessageViewModel", nameof(QuizMessageViewModel))]
     public class QuizViewModel : INotifyPropertyChanged
     {
-        private QuizMessageViewModel _replyViewModel;
+        private QuizMessageViewModel _quizMessageViewModel;
+        private List<AnswerMessageViewModel> _answerMessageVeiwModels;
 
         public QuizMessageViewModel QuizMessageViewModel
         {
-            get => _replyViewModel;
+            get => _quizMessageViewModel;
 
             set
             {
-                if (_replyViewModel != value)
+                if (_quizMessageViewModel != value)
                 {
-                    _replyViewModel = value;
+                    _quizMessageViewModel = value;
                     OnPropertyChanged();
                 }
             }
+        }
+
+
+        public List<AnswerMessageViewModel> AnswerMessageViewModels
+        {
+            get => _answerMessageVeiwModels;
+            set
+            {
+                if(_answerMessageVeiwModels != value)
+                {
+                    _answerMessageVeiwModels = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public ICommand StartQuizCommand { get; set; }
+
+        public QuizViewModel()
+        {
+            StartQuizCommand = new Command(async () => await OnStartQuiz());
+        }
+
+        private async Task OnStartQuiz()
+        {
+            await Shell.Current.GoToAsync("PassingQuizPage", new Dictionary<string, object>()
+            {
+                ["QuizMessageViewModel"] = _quizMessageViewModel
+            });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
