@@ -5,24 +5,25 @@
     <VerticalStackLayout>
         <Label Text="Создание викторины"/>
         <Label Text="Название:"/>
-        <Entry/>
-        <Picker Title = "Тема:"/>
+        <Entry Text="{Binding Name}"/>
+        <Label Text="Тема:"/>
+        <Entry Text="{Binding Topic}"/>
 
         <HorizontalStackLayout>
             <Label Text="Вопросы"/>
-            <Button Text="Добавить"/>
+            <Button Text="Добавить" Command="{Binding AddCommand}"/>
         </HorizontalStackLayout>
 
-        <CollectionView>
+        <CollectionView ItemsSource="{Binding Questions}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <HorizontalStackLayout>
-                        <Label Text="1"/>
-                        <Button Text="Начальный текст вопроса"/>
+                        <Label Text="{Binding Num}"/>
+                        <Entry Text="{Binding Text}"/>
                     </HorizontalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Сохранить"/>
+        <Button Text="Сохранить" Command="{Binding SaveCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
