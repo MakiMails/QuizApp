@@ -7,8 +7,8 @@ option csharp_namespace = "QuizLibrary.Protos.CatalogProto";
 package catalogProto;
 
 service CatalogProto {
-	rpc GetBlockInternetQuiz(GetBlockInternetQuizRequect) returns (QuiezReplys);
-	rpc GetBlockMyQuiz(GetBlockMyQuizRequect) returns (QuiezReplys);
+	rpc GetBlockInternetQuiz(GetBlockInternetQuizRequect) returns (QuiezMessages);
+	rpc GetBlockMyQuiz(GetBlockMyQuizRequect) returns (QuiezMessages);
 }
 
 message GetBlockInternetQuizRequect{
